@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>profil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div id="images">
+    <div class="image" *ngFor="let post of {userData | async}?.posts">
+      <ion-card>
+        <ino-image src="https://ucarecdn.com/{{ post.image }}/-/crop/200x200/center/"></ino-image>
+      </ion-card>
+      <ion-content>
+        <p>{{  post.desc }}</p>
+      </ion-content>
+    </div>
+  </div>
+</ion-content>

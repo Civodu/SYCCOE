@@ -1,0 +1,213 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      
+      <ion-title class="ion-align-items-center">
+        <div class="foo">
+          <span class="letter" data-letter="A">A</span>
+          <span class="letter" data-letter="L">L</span>
+          <span class="letter" data-letter="A">A</span>
+          <span class="letter" data-letter="M">M</span>
+          <span class="letter" data-letter="B">B</span>
+          <span class="letter" data-letter="A">A</span>
+        </div>
+   
+      </ion-title>
+      
+      <div class="item thumb-right" > 
+        <img src="../../assets/on.PNG" >
+     </div>
+
+      <ion-icon slot="end" style="zoom: 1.5;" name="log-out"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+<!-- premier bloque-->
+<ion-content class="ion-padding">
+ 
+    <ion-input [(ngModel)]="inputText" placeholder="Ajouter Une lampe"></ion-input>
+    <ion-button   expand="full" (click)="addItem({name:inputText})" color="success">Ajouter une lampe</ion-button>
+
+    <ion-card  *ngFor="let item of items">
+
+    <ion-card-header>
+      <ion-card-title style="text-align: center;">{{item.name}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+        <ion-grid >
+          <ion-row>
+            <ion-col size="12">
+                <ion-item-sliding *ngFor="let item of items">
+                  <ion-item>
+                    <h3> Quantité| {{item.kwh}} kwh</h3>
+                  </ion-item>
+                </ion-item-sliding>
+            </ion-col>
+            
+            <ion-col size="12">
+              <ion-item-sliding>
+                <ion-item>
+                    <h3>Date| {{item.dateh}} s</h3>  
+                </ion-item>
+              </ion-item-sliding>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item-sliding>
+                <ion-item>
+                <h3>Cout| {{item.facture}} FCFA </h3> 
+               </ion-item>
+              </ion-item-sliding>
+            </ion-col>
+
+          </ion-row>
+            <ion-row>
+                <ion-col size="6">
+                    <ion-button  expand="full" (click)="onState()" color="success">
+                      ON
+                    </ion-button>
+                  </ion-col>
+                  <ion-col size="6">
+                     <ion-button  expand="full" (click)="offState()" color="danger">
+                       OFF
+                     </ion-button>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-button  expand="full" (click)="showChart()" color="warning">
+                      Historique
+                    </ion-button>
+                    <div id="chart_div">
+
+                    </div>
+                 </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card-content>
+   
+  </ion-card>
+ 
+<!-- deuxieme content-->
+
+<ion-input [(ngModel)]="inputTextF" placeholder="Ajouter un Frigidaire"></ion-input>
+<ion-button   expand="full" (click)="addItemF({name:inputTextF})" color="success">Ajouter un Frigidaire</ion-button>
+
+<ion-card  *ngFor="let lamp of itemsF">
+
+  <ion-card-header>
+    <ion-card-title style="text-align: center;">{{lamp.name}}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+      <ion-grid >
+        <ion-row>
+          <ion-col size="12">
+              <ion-item-sliding *ngFor="let lamp of itemsF">
+                <ion-item>
+                  <h3>Quantité| {{lamp.kwh}} kwh</h3> 
+                </ion-item>
+              </ion-item-sliding>
+          </ion-col>
+  
+          <ion-col size="12">
+            <ion-item-sliding>
+              <ion-item>
+                  <h3>Date| {{lamp.dateh}} s</h3> 
+              </ion-item>
+            </ion-item-sliding>
+          </ion-col>
+          <ion-col size="12">
+            <ion-item-sliding>
+              <ion-item>
+              <h3>Cout| {{lamp.facture}} FCFA </h3> 
+             </ion-item>
+            </ion-item-sliding>
+          </ion-col>
+        </ion-row>
+          <ion-row>
+              <ion-col size="6">
+                  <ion-button  expand="full" (click)="onStateF()" color="success">
+                    ON
+                  </ion-button>
+                </ion-col>
+                <ion-col size="6">
+                   <ion-button  expand="full" (click)="offStateF()" color="danger">
+                     OFF
+                   </ion-button>
+                </ion-col>
+                <ion-col size="12">
+                  <ion-button  expand="full" (click)="showChart()" color="warning">
+                    Historique
+                  </ion-button>
+                  <div id="chart_div">
+
+                  </div>
+               </ion-col>
+          </ion-row>
+      </ion-grid>
+  </ion-card-content>
+ 
+</ion-card>
+
+<!--Troisieme content-->
+<ion-input [(ngModel)]="inputTextM" placeholder="Ajouter Micro-Onde"></ion-input>
+<ion-button   expand="full" (click)="addItemM({name:inputTextM})" color="success">Ajouter Micro-Onde</ion-button>
+
+<ion-card  *ngFor="let item of itemsM">
+
+<ion-card-header>
+  <ion-card-title style="text-align: center;">{{item.name}}</ion-card-title>
+</ion-card-header>
+
+<ion-card-content>
+    <ion-grid >
+      <ion-row>
+        <ion-col size="12">
+            <ion-item-sliding *ngFor="let item of itemsM">
+              <ion-item>
+                <h3> Quantité| {{item.kwh}} kwh</h3>
+              </ion-item>
+            </ion-item-sliding>
+        </ion-col>
+        
+        <ion-col size="12">
+          <ion-item-sliding>
+            <ion-item>
+            <h3>Date| {{item.dateh}} s </h3> 
+           </ion-item>
+          </ion-item-sliding>
+        </ion-col>
+        
+        <ion-col size="12">
+          <ion-item-sliding>
+            <ion-item>
+            <h3>Cout| {{item.facture}} FCFA </h3> 
+           </ion-item>
+          </ion-item-sliding>
+        </ion-col>
+      </ion-row>
+        <ion-row>
+            <ion-col size="6">
+                <ion-button  expand="full" (click)="onStateM()" color="success">
+                  ON
+                </ion-button>
+              </ion-col>
+              <ion-col size="6">
+                 <ion-button  expand="full" (click)="offStateM()" color="danger">
+                   OFF
+                 </ion-button>
+              </ion-col>
+              <ion-col size="12">
+                <ion-button (click)="showChart()" color="warning">
+                  Historique
+                </ion-button>
+                <div id="chart_div">
+                </div>
+             </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-card-content>
+</ion-card>
+
+  <button (click)="goToChart()"><h3>Historique générale</h3></button>
+
+
+</ion-content>
